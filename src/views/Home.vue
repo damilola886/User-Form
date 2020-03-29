@@ -4,7 +4,7 @@
     <HelloWorld msg="Welcome to Your Vue.js App"/> -->
     <h2>A Form to Create a User</h2>
     <div class="row mt-5">
-      <div class="col-md-5 offset-md-1">
+      <div class="col-md-8 offset-md-1">
         <form>
           <div class="input-group mb-3">
             <input
@@ -21,10 +21,11 @@
           </div>
         </form>
       </div>
-      <div class="col-md-6">
+      <div class="col-md-8">
         <ul class="list-group">
           <li class="list-group-item" v-for="user in users" :key="user.id">
-            {{ user.name }} <span @click="delUser(user)">X</span>
+            {{ user.name }}
+            <div class="span"><span @click="delUser(user)">X</span></div>
           </li>
         </ul>
       </div>
@@ -101,11 +102,31 @@ span {
   float: right;
   cursor: pointer;
 }
+.span {
+  width: 20px;
+  float: right;
+}
 h2 {
-  background-color: #808080;
+  background-color: #555555;
   padding-top: 20px;
   padding-bottom: 20px;
-  color: black;
+  color: white;
   font-size: 40px;
+}
+.span:hover {
+  border: 1px solid red;
+
+  background-color: red;
+}
+span:hover {
+  color: white;
+  padding-right: 3px;
+}
+ul {
+  margin-left: 250px;
+  box-shadow: 5px 10px #f0efef;
+}
+input {
+  margin-left: 120px;
 }
 </style>
