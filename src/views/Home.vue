@@ -25,7 +25,9 @@
         <ul class="list-group">
           <li class="list-group-item" v-for="user in users" :key="user.id">
             {{ user.name }}
-            <div class="span"><span @click="delUser(user)">X</span></div>
+            <div class="span" @click="delUser(user)">
+              <span @click="delUser(user)">X</span>
+            </div>
           </li>
         </ul>
       </div>
@@ -120,7 +122,6 @@ h2 {
 }
 span:hover {
   color: white;
-  padding-right: 3px;
 }
 ul {
   margin-left: 250px;
