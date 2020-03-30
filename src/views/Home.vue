@@ -26,7 +26,7 @@
           <li class="list-group-item" v-for="user in users" :key="user.id">
             {{ user.name }}
             <div class="span" @click="delUser(user)">
-              <span @click="delUser(user)">X</span>
+              X
             </div>
           </li>
         </ul>
@@ -60,10 +60,10 @@ export default {
   methods: {
     saveUser() {
       if (!this.existingUser(this.newUserName)) {
-        let lastUserIndex = this.users.length - 1;
-        let lastUser = this.users[lastUserIndex];
+        // let lastUserIndex = this.users.length - 1;
+        // let lastUser = this.users[lastUserIndex];
 
-        let newUserid = lastUser.id + 1;
+        let newUserid = this.users.length + 1;
 
         let newuser = {
           id: newUserid,
@@ -86,6 +86,9 @@ export default {
 
           this.newUserName = null;
           this.users.pop(newuser);
+        } else if (this.newUserName === "") {
+          alert("Please fill the required field");
+          this.newUserName = null;
         }
       });
     },
@@ -107,6 +110,7 @@ span {
 .span {
   width: 20px;
   float: right;
+  color: red;
 }
 h2 {
   background-color: #555555;
@@ -117,6 +121,8 @@ h2 {
 }
 .span:hover {
   border: 1px solid red;
+  color: white;
+  cursor: pointer;
 
   background-color: red;
 }
